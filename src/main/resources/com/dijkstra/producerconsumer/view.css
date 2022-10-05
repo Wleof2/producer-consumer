@@ -1,0 +1,49 @@
+@import "colors.css";
+
+.main {
+    -fx-background-color: -white;
+}
+
+.info .title {
+    -fx-font-size: 24px;
+    -fx-color: #808080;
+    -fx-letter-spacing: 1.89px;
+    -fx-font-weight: 600;
+}
+
+.info .description {
+    -fx-font-size: 18px;
+    -fx-color: #808080;
+    -fx-letter-spacing: 1.41px;
+    -fx-line-height: 29px;
+    -fx-font-weight: 400;
+}
+
+.threads {
+    -fx-background-radius: 10px;
+    -fx-background-color: #E9E9E9;
+}
+
+.buffer .position {
+    -fx-background-radius: 10px;
+}
+
+.buffer .position.red {
+    -fx-background-color: -light-red;
+}
+
+.buffer .position.gray {
+    -fx-background-color: -light-gray;
+}
+
+.button {
+    -fx-background-radius: 4px
+}
+
+.button.start {
+    -fx-background-color: #309CFF;
+}
+
+.button.stop {
+    -fx-background-color: #ff4d4d;
+}

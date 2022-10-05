@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.transform.Translate?>
+
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" styleClass="main" stylesheets="@view.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dijkstra.producerconsumer.Controller">
+   <children>
+      <Pane layoutX="511.0" layoutY="19.0">
+         <children>
+            <Pane layoutY="101.0">
+               <children>
+                  <CheckBox fx:id="enableMonitors" layoutY="1.0" mnemonicParsing="false" />
+                  <Text layoutX="31.0" layoutY="15.0" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enable Monitors" wrappingWidth="132.8677978515625">
+                     <font>
+                        <Font name="SF Pro Display Regular" size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="info" />
+                        <String fx:value="description" />
+                     </styleClass>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="184.0" prefHeight="74.0" prefWidth="143.0">
+               <children>
+                  <Text layoutY="21.0" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consumers" wrappingWidth="132.8677978515625">
+                     <font>
+                        <Font name="SF Pro Display Regular" size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="info" />
+                        <String fx:value="description" />
+                     </styleClass>
+                  </Text>
+                  <Spinner fx:id="consumers" cacheShape="false" centerShape="false" editable="true" focusTraversable="false" layoutY="34.0" max="3" min="1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="143.0" scaleShape="false" />
+               </children>
+            </Pane>
+            <Pane prefHeight="74.0" prefWidth="143.0">
+               <children>
+                  <Text layoutY="21.0" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producers" wrappingWidth="132.8677978515625">
+                     <font>
+                        <Font name="SF Pro Display Regular" size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="info" />
+                        <String fx:value="description" />
+                     </styleClass>
+                  </Text>
+                  <Spinner fx:id="producers" cacheShape="false" centerShape="false" editable="true" focusTraversable="false" layoutY="34.0" max="3" min="1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="143.0" scaleShape="false" />
+               </children>
+            </Pane>
+            <Button fx:id="button" alignment="CENTER" layoutY="143.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="328.0" styleClass="start" text="START" textAlignment="JUSTIFY" textFill="#eeeeee">
+               <font>
+                  <Font name="SF Pro Display Bold" size="17.0" />
+               </font></Button>
+         </children>
+      </Pane>
+      <Pane layoutX="50.0" layoutY="30.0">
+         <children>
+            <Text layoutY="60.0" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In computing, the producer-consumer problem (also known as the bounded-buffer problem) is a family of problems described by Edsger W. Dijkstra since 1965." wrappingWidth="410.54339599609375" y="-6.0">
+               <font>
+                  <Font name="SF Pro Display Regular" size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="info" />
+                  <String fx:value="description" />
+               </styleClass>
+            </Text>
+            <Text layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producer - Consumer Problem" wrappingWidth="410.54339599609375">
+               <font>
+                  <Font name="SF Pro Display Semibold" size="24.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="info" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Text>
+         </children>
+      </Pane>
+      <GridPane hgap="50.0" layoutX="50.0" layoutY="404.0" prefHeight="90.0" prefWidth="790.0" styleClass="buffer">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="90.0" minHeight="90.0" prefHeight="90.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="red" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_slot_0" alignment="CENTER" columnHalignment="CENTER" prefHeight="90.0" prefWidth="90.0" prefWrapLength="0.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_slot_1" alignment="CENTER" columnHalignment="CENTER" prefHeight="90.0" prefWidth="90.0" prefWrapLength="0.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_slot_2" alignment="CENTER" columnHalignment="CENTER" prefHeight="90.0" prefWidth="90.0" prefWrapLength="0.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_slot_3" alignment="CENTER" columnHalignment="CENTER" layoutX="-2.0" layoutY="-4.0" prefHeight="90.0" prefWidth="90.0" prefWrapLength="0.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_slot_4" alignment="CENTER" columnHalignment="CENTER" prefHeight="90.0" prefWidth="90.0" prefWrapLength="0.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="red" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_slot_5" alignment="CENTER" columnHalignment="CENTER" prefHeight="90.0" prefWidth="90.0" prefWrapLength="0.0" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Pane layoutX="50.0" layoutY="172.0">
+         <children>
+            <Pane layoutY="0.765625">
+               <children>
+                  <Circle fill="#309cff" layoutX="14.0" layoutY="12.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Text layoutX="34.0" layoutY="17.0" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producer" wrappingWidth="66.78523254394531">
+                     <font>
+                        <Font name="SF Pro Display Medium" size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="info" />
+                        <String fx:value="description" />
+                     </styleClass>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="129.0" prefHeight="22.0" prefWidth="110.0">
+               <children>
+                  <Circle fill="#ff6430" layoutX="14.0" layoutY="12.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Text layoutX="34.0" layoutY="18.0" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consumer" wrappingWidth="74.79524230957031">
+                     <font>
+                        <Font name="SF Pro Display Medium" size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="info" />
+                        <String fx:value="description" />
+                     </styleClass>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="50.0" layoutY="234.0"
+            prefHeight="80.0" prefWidth="793.0"
+            styleClass="threads">
+         <children>
+            <Text layoutX="25.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thread  State" wrappingWidth="140.99033737182617">
+               <font>
+                  <Font name="SF Pro Display Semibold" size="18.0" />
+               </font>
+            </Text>
+            <FlowPane fx:id="threads" alignment="CENTER_LEFT" columnHalignment="CENTER" hgap="42.0" layoutX="159.0" layoutY="9.0" prefHeight="64.0" prefWidth="614.0" prefWrapLength="1.0" rowValignment="TOP" />
+         </children>
+      </Pane>
+      <Text layoutX="54.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bounded Buffer" textAlignment="CENTER" wrappingWidth="786.3079032897949">
+         <font>
+            <Font name="SF Pro Display Semibold" size="18.0" />
+         </font>
+      </Text>
+      <GridPane hgap="50.0" layoutX="50.0" layoutY="370.0" maxHeight="20.0" prefHeight="23.0" prefWidth="790.0" styleClass="buffer">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="red" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_interest_0" alignment="CENTER" columnHalignment="CENTER" hgap="4.6" layoutX="2.0" prefHeight="20.0" prefWidth="86.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_interest_1" alignment="CENTER" columnHalignment="CENTER" hgap="4.6" layoutX="2.0" prefHeight="20.0" prefWidth="86.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_interest_2" alignment="CENTER" columnHalignment="CENTER" hgap="4.6" layoutX="2.0" prefHeight="20.0" prefWidth="86.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_interest_3" alignment="CENTER" columnHalignment="CENTER" hgap="4.6" layoutX="2.0" prefHeight="20.0" prefWidth="86.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="gray" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_interest_4" alignment="CENTER" columnHalignment="CENTER" hgap="4.6" layoutX="2.0" prefHeight="20.0" prefWidth="86.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
+               <styleClass>
+                  <String fx:value="position" />
+                  <String fx:value="red" />
+               </styleClass>
+               <children>
+                  <FlowPane fx:id="buffer_interest_5" alignment="CENTER" columnHalignment="CENTER" hgap="4.6" layoutX="2.0" prefHeight="20.0" prefWidth="86.0" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Text fill="#6f6f6f" layoutX="717.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Made with Coffe" wrappingWidth="116.15606156616138">
+         <font>
+            <Font name="SF Pro Display Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#393939" layoutX="717.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By Wylton Leone" wrappingWidth="122.84902075767423">
+         <font>
+            <Font name="SF Pro Display Semibold" size="16.0" />
+         </font>
+      </Text>
+      <Group layoutX="49.0" layoutY="550.0" xmlns:fxsvg="http://efxclipse.org/fxml-svg" />
+      <GridPane hgap="50.0" layoutX="50.0" layoutY="504.0" maxHeight="20.0" prefHeight="23.0" prefWidth="790.0" styleClass="buffer">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <FlowPane alignment="CENTER" layoutX="-5.0" layoutY="-3.0" prefHeight="28.0" prefWidth="99.0">
+                     <children>
+                        <Text fill="#e64949" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-1" wrappingWidth="18.074532314442422">
+                           <font>
+                              <Font name="SF Pro Display Semibold" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="info" />
+                              <String fx:value="description" />
+                           </styleClass>
+                        </Text>
+                     </children>
+                  </FlowPane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <FlowPane alignment="CENTER" layoutX="-4.0" layoutY="-4.0" prefHeight="28.0" prefWidth="99.0">
+                     <children>
+                        <Text lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="8.93914107909086">
+                           <font>
+                              <Font name="SF Pro Display Semibold" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="info" />
+                              <String fx:value="description" />
+                           </styleClass>
+                        </Text>
+                     </children>
+                  </FlowPane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <FlowPane alignment="CENTER" layoutX="-5.0" layoutY="-4.0" prefHeight="28.0" prefWidth="99.0">
+                     <children>
+                        <Text lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="8.93914107909086">
+                           <font>
+                              <Font name="SF Pro Display Semibold" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="info" />
+                              <String fx:value="description" />
+                           </styleClass>
+                        </Text>
+                     </children>
+                  </FlowPane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <FlowPane alignment="CENTER" layoutX="-5.0" layoutY="-4.0" prefHeight="28.0" prefWidth="99.0">
+                     <children>
+                        <Text lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="8.93914107909086">
+                           <font>
+                              <Font name="SF Pro Display Semibold" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="info" />
+                              <String fx:value="description" />
+                           </styleClass>
+                        </Text>
+                     </children>
+                  </FlowPane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <FlowPane alignment="CENTER" layoutX="-5.0" layoutY="-4.0" prefHeight="28.0" prefWidth="99.0">
+                     <children>
+                        <Text lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="8.93914107909086">
+                           <font>
+                              <Font name="SF Pro Display Semibold" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="info" />
+                              <String fx:value="description" />
+                           </styleClass>
+                        </Text>
+                     </children>
+                  </FlowPane>
+               </children>
+            </Pane>
+            <FlowPane alignment="CENTER" prefHeight="28.0" prefWidth="99.0" GridPane.columnIndex="5">
+               <children>
+                  <Text fill="#e64949" lineSpacing="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-1" wrappingWidth="20.10460738768461">
+                     <font>
+                        <Font name="SF Pro Display Semibold" size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="info" />
+                        <String fx:value="description" />
+                     </styleClass>
+                  </Text>
+               </children>
+            </FlowPane>
+         </children>
+      </GridPane>
+      <Group layoutX="55.0" layoutY="548.0" xmlns:fxsvg="http://efxclipse.org/fxml-svg">
+      	<children>
+      		<!-- Unhandled type 'SvgTitleElement' -->
+      		<Group id="Page-1" opacity="1.0">
+      			<children>
+      				<Group id="CEFET_-_MG" opacity="1.0">
+      					<children>
+      						<SVGPath id="cefet" content="M51.5962758,55.4263286 L58.9232126,49.4993353 C59.1038111,49.3532043 59.2885965,49.235274 59.4767315,49.1407019 C59.2255126,48.9538365 58.9659198,48.7715289 58.69572,48.5957729 C56.4570811,47.1390206 50.419176,46.3052479 48.1922606,46.3052479 C43.396493,46.3052479 38.5052623,48.2918318 35.5138043,49.9092427 C33.674045,50.9042438 31.5897661,52.3632748 30.4894276,53.1392219 C30.323344,53.2565824 29.995643,53.5018432 29.8577518,53.56736 C29.6380749,53.6716172 29.4209101,53.6465499 29.5289342,53.3440331 C29.5814111,53.1970476 29.93228,52.911907 30.1299055,52.7090897 C31.2235448,51.5867581 32.5404898,50.6230911 33.8680418,49.7468749 C37.308065,47.4768595 41.1399896,45.9261049 46.6695953,45.177504 C51.5295632,44.5197721 56.9039715,45.7435124 60.6708583,47.9619689 C62.3107591,48.9279147 63.634124,50.0844289 64.5544224,51.3449156 C66.211071,53.4978552 67.3934743,56.4162022 66.8779175,59.2419711 C66.0960686,63.5264863 60.0673749,69.7363413 49.7785679,70.3590359 C47.0866186,70.5219734 44.5155334,70.4558869 42.3433278,70.0775985 C36.3375229,69.0313234 32.6923376,66.5445328 32.4210213,63.3436089 C32.1926913,60.6491585 34.323027,57.8937489 38.3986339,56.1911662 C38.8201233,56.0151254 39.4004388,55.4639295 37.7987791,55.7086206 C30.5212486,57.4827021 25.5367878,62.2594479 25.5172486,67.1831793 C25.4848693,75.3611027 33.4881431,79.108095 43.2435287,78.8030145 C44.0672473,78.7773775 46.2975123,78.5446504 47.3746828,78.3113535 C48.897069,77.9814906 49.07683,78.2219088 50.1294369,77.4451072 L54.1712688,74.4623828 C55.1722363,73.6986846 56.1489193,72.9005188 57.1741713,72.171573 C58.0193831,71.5708122 57.7218283,72.4515862 57.336347,73.0799779 C56.6106037,74.2626989 56.2410329,74.5743311 54.8813807,75.8536182 L54.8763564,75.8590305 L54.8760772,75.8584608 C53.9998818,76.6762816 53.0606024,77.4382707 51.9644509,78.2521035 C49.2722224,80.2509362 49.5415848,80.1045204 48.1062879,80.3588965 C46.9116028,80.5705444 45.7850259,80.8226417 44.4454712,80.9143652 C31.6634569,81.7885875 23.5655574,75.8903646 24.0180304,66.8345159 C24.3887178,59.4151634 34.4832488,53.2147086 44.4571948,54.4939957 C45.8802099,54.6763034 47.2529813,55.052313 48.6198909,55.4607961 C50.3934958,55.9911975 50.1567919,56.5911037 51.5962758,55.4263286 Z M49,93 C49.1725379,92.6514021 49.3213555,92.3177208 49.4447582,92 C50.0671373,92.0098449 50.6578892,92.0147673 51.2139075,92.0147673 C51.7786798,92.0147673 52.3750794,92.0098449 53,92 C52.8407342,92.3102625 52.6919167,92.6440931 52.5555242,93 C51.9317331,92.9925418 51.3387222,92.9888126 50.7781857,92.9888126 C50.2176491,92.9888126 49.6243558,92.9925418 49,93 Z M13.2973837,93.3107524 C13.1404944,93.7144803 12.9437228,94.2760632 12.6968054,94.9995413 C12.4498879,95.7233079 12.2733507,96.2805621 12.1660208,96.6796727 C10.4977149,96.8946671 9.01826276,97 7.73147665,97 C6.49366349,97 5.35643548,96.7229601 4.34354596,96.4144647 C1.48815937,95.5443864 -0.179853245,93.5508536 0.0154520302,90.2898635 C0.090231077,89.0402983 0.665883112,87.674434 1.40458279,86.7365386 C4.15967748,83.2380446 7.54878118,82.9699508 10.9499082,83.0022721 C12.0798049,83.0132383 13.3727493,83.1973543 15,83.4562135 L14.2859334,85.9772763 C13.421429,85.7842141 13.1469459,85.7813283 12.6044312,85.7135112 C12.0575178,85.6454056 11.5499001,85.6081784 11.0751264,85.6081784 C10.0478676,85.6081784 8.74641893,85.6254933 7.85962741,85.9966113 C6.9751819,86.366575 6.38340105,86.8710184 5.79689873,87.5771815 C4.93679306,88.6123294 4.5186169,90.9134918 5.19162832,92.1310243 C5.49895554,92.6923186 5.96903716,93.1223076 6.59542164,93.4293601 C7.2273779,93.7320839 8.03469836,93.8856102 9.03292532,93.8856102 C9.57602647,93.8856102 10.1692736,93.8460743 10.8229304,93.7670025 C11.4713087,93.6882192 12.2979838,93.534693 13.2973837,93.3107524 Z M43.1116476,97 C43.8455039,94.3902008 44.5307785,91.5155612 45.1680748,88.3760814 L42,88.4655585 L42.2051901,87.5716851 C42.3132167,87.0934763 42.4266747,86.5709777 42.5428485,86 C43.9414605,86.0104739 45.571213,86.0173568 47.4354255,86.0173568 L49.2637296,86.0068829 L51.0365118,86.0068829 L52,86 L51.8080869,86.7909299 C51.7100181,87.2137766 51.6291491,87.5612112 51.5709113,87.8398172 C51.513277,88.1148321 51.4707302,88.3246096 51.444478,88.4655585 C50.3986119,88.4072039 49.533796,88.3760814 48.8494267,88.3760814 L48.3319252,88.3760814 C48.0790585,89.3253169 47.8581774,90.2021329 47.6698853,91.0065292 C47.401026,92.1586593 47.1475558,93.279667 46.9161135,94.3662604 C46.6813518,95.4528538 46.504828,96.3296697 46.3796017,97 C45.5709113,96.9898253 45.0515993,96.9829425 44.8150272,96.9829425 C44.6035003,96.9829425 44.0347013,96.9898253 43.1116476,97 Z M31,97 C31.3530002,95.6144513 31.6354562,94.4521465 31.848762,93.5202677 C32.0629043,92.5850971 32.3303034,91.3401981 32.6498439,89.7927526 C32.9702208,88.2420153 33.1740464,87.2137766 33.2613205,86.7083356 L33.377872,86 C34.4485835,86.0104739 35.747379,86.0173568 37.274816,86.0173568 C38.6826344,86.0173568 39.9228753,86.0104739 41,86 L40.9397725,86.2648403 C40.9255521,86.3300778 40.8736895,86.5640949 40.7866942,86.9662931 L40.593743,87.8467 C40.5499665,88.0322379 40.5139973,88.2249578 40.4805376,88.4173785 C39.6075173,88.3760814 38.8741914,88.352141 38.2794446,88.352141 C37.6236337,88.352141 37.1800134,88.3554328 36.9496989,88.3554328 C36.7188267,88.3590239 36.3580192,88.3727896 35.8675552,88.3934382 L35.4643654,90.2398389 C35.9974905,90.2568965 36.6231876,90.2637793 37.3372741,90.2637793 C37.5937988,90.2637793 38.2763774,90.24343 39.3847312,90.2054247 C39.2193843,90.8931117 39.0373076,91.711573 38.8290207,92.6641003 C38.0438323,92.6536264 37.441557,92.6467436 37.0160607,92.6467436 C36.3895271,92.6467436 35.6804595,92.6673921 34.8955499,92.7053975 L34.4761878,94.6619239 L35.2630493,94.6619239 C35.4933638,94.6619239 35.9754629,94.6550411 36.7071158,94.6376843 L38.1280393,94.5963872 C38.3391144,94.5895043 38.6923935,94.569155 39.1917801,94.5311497 C38.9985501,95.3289624 38.8128485,96.1507155 38.6282623,97 C37.5193509,96.9898253 36.302253,96.9829425 34.9789204,96.9829425 L31.9720054,96.9931171 L31,97 Z M23,97 C23.2967791,95.9101148 23.5216911,95.0332989 23.6802642,94.3731433 C23.913905,93.3963763 24.211266,92.0521247 24.5714743,90.3394907 C24.9316826,88.627156 25.1659053,87.4786169 25.2726876,86.8872898 L25.4324246,86 C26.8601647,86.0104739 28.1881056,86.0173568 29.4200297,86.0173568 C30.658064,86.0173568 31.854491,86.0104739 33,86 C32.7014752,87.2344252 32.5193343,88.0427118 32.4506678,88.4242614 L31.8344147,88.400321 L31.3368733,88.3934382 L30.8399139,88.3829643 L29.4348686,88.3829643 C29.2736769,88.3829643 28.8008671,88.3898471 28.0141116,88.400321 L27.612005,90.277545 L28.642003,90.3017846 L29.794786,90.3017846 C30.1261893,90.3017846 30.6353691,90.2949018 31.3229073,90.277545 C31.0883936,91.2920181 30.9173092,92.0898308 30.8137275,92.6641003 C30.0551951,92.6365689 29.4889872,92.6228032 29.1177224,92.6228032 C28.4912858,92.6228032 27.8046204,92.6365689 27.0574355,92.6641003 L26.4644593,95.5662713 L26.2636969,96.6459818 L26.1996858,97 L24.6698187,96.9829425 C24.5513981,96.9829425 23.993337,96.9898253 23,97 Z M14,97 C14.3530002,95.6144513 14.6354562,94.4521465 14.848762,93.5202677 C15.0629043,92.5850971 15.3303034,91.3401981 15.6498439,89.7927526 C15.9702208,88.2420153 16.1740464,87.2137766 16.2613205,86.7083356 L16.377872,86 C17.4485835,86.0104739 18.747379,86.0173568 20.274816,86.0173568 C21.6826344,86.0173568 22.9228753,86.0104739 24,86 L23.9397725,86.2648403 C23.9255521,86.3300778 23.8734107,86.5640949 23.7866942,86.9662931 L23.593743,87.8467 C23.5499665,88.0322379 23.5139973,88.2249578 23.4805376,88.4173785 C22.6075173,88.3760814 21.8741914,88.352141 21.2794446,88.352141 C20.6236337,88.352141 20.1800134,88.3554328 19.9496989,88.3554328 C19.7188267,88.3590239 19.3580192,88.3727896 18.8675552,88.3934382 L18.4640865,90.2398389 C18.9977694,90.2568965 19.6231876,90.2637793 20.3372741,90.2637793 C20.5937988,90.2637793 21.2763774,90.24343 22.3847312,90.2054247 C22.2193843,90.8931117 22.0373076,91.711573 21.8290207,92.6641003 C21.0438323,92.6536264 20.441557,92.6467436 20.0160607,92.6467436 C19.3892483,92.6467436 18.6804595,92.6673921 17.8955499,92.7053975 L17.4761878,94.6619239 L18.2630493,94.6619239 C18.4933638,94.6619239 18.9754629,94.6550411 19.7071158,94.6376843 L21.1280393,94.5963872 C21.3391144,94.5895043 21.6923935,94.569155 22.1915012,94.5311497 C21.9985501,95.3289624 21.8128485,96.1507155 21.6282623,97 C20.5193509,96.9898253 19.302253,96.9829425 17.9789204,96.9829425 L14.9720054,96.9931171 L14,97 Z M76.9272306,90.0370161 C77.65012,90.0477332 78.3397418,90.0550659 78.9969139,90.0550659 C80.1179243,90.0550659 80.9997894,90.0477332 81.6351467,90.0370161 C81.4309052,90.8103363 81.1669456,91.9051682 80.8454493,93.325178 C80.5212262,94.7415215 80.2886254,95.8109709 80.1479197,96.5338081 C79.517198,96.6531058 78.9974593,96.7396884 78.5881583,96.7938377 C78.1796753,96.8446027 77.6932043,96.8950857 77.1238369,96.9348516 C76.553924,96.9782839 76.0524553,97 75.6120681,97 C74.894087,97 74.1971028,96.9385179 73.5249329,96.8118875 C72.8557625,96.6892054 72.2675797,96.4903758 71.771292,96.2122964 C71.2717321,95.933935 70.8801556,95.5616583 70.5984714,95.0847493 C70.3195141,94.6115067 70.1335426,94.0513996 70.0520096,93.4010435 C69.966659,92.7506874 69.9868377,92.0786152 70.1090009,91.3848269 C70.3110609,90.2392301 70.7664458,89.1734471 71.4740648,88.1942466 C72.1825019,87.2113798 73.0889086,86.4307269 74.1919217,85.8599027 C75.2957529,85.2854121 76.63982,85 78.2282134,85 C79.3865816,85 80.6439347,85.1480646 82,85.4481421 C81.8549313,86.2719453 81.7270418,87.1896637 81.6166041,88.2012973 C81.2612948,88.0642318 80.9708847,87.9629839 80.7464645,87.8905027 C80.5214989,87.82197 80.25863,87.7568215 79.9545856,87.6956215 C79.6497232,87.6378058 79.3593131,87.5943735 79.080083,87.5656067 C78.8041253,87.5365579 78.5524365,87.5221744 78.3323792,87.5221744 C77.7499229,87.5221744 77.1819189,87.6124233 76.6324575,87.7895368 C76.0829961,87.9663682 75.5875264,88.2410632 75.1501388,88.6096736 C74.7119331,88.9819502 74.3566238,89.4227596 74.079848,89.9357682 C73.8030721,90.4487767 73.6162825,90.9908341 73.5156615,91.5616583 C73.4131318,92.1434816 73.4262207,92.6638229 73.5601093,93.1156314 C73.6899076,93.5708242 73.9639566,93.9177184 74.3825289,94.1560319 C74.8016466,94.390961 75.2954802,94.5102588 75.86103,94.5102588 C76.331958,94.5102588 76.8596045,94.4380596 77.4477873,94.2899951 L77.8600879,92.4506099 C77.5178675,92.4325601 77.3158075,92.4255094 77.2514537,92.4255094 L76.4102187,92.4325601 L76.6477279,91.3918776 C76.6744511,91.2799126 76.7096275,91.1174646 76.7576201,90.9042516 C76.8077943,90.6947049 76.8623314,90.4056265 76.9272306,90.0370161 Z M53,97 L53.5113567,95.373591 L55.0910985,89.7241009 L56.0538501,86 C57.0541478,86.010467 57.835893,86.017445 58.4066511,86.017445 C58.8799012,86.017445 59.605047,86.010467 60.5815281,86 C60.5633154,86.4608159 60.5557501,86.8115942 60.5621946,87.0523349 C60.5658372,87.2895867 60.5952577,87.7571122 60.6571809,88.4551798 C60.7163021,89.1497585 60.7586116,89.7514761 60.7765441,90.2603328 C60.7986796,90.7659689 60.8070854,91.6358025 60.8096072,92.8668814 C61.2069243,92.020934 61.5636131,91.2989801 61.8743499,90.6902845 C62.1850866,90.0815888 62.5630702,89.3939882 63.0026969,88.6202362 C63.4423235,87.8464842 63.7270021,87.3376275 63.8486069,87.1003757 C63.9746948,86.8599034 64.1517784,86.4954375 64.3818188,86 C65.1941054,86.010467 65.9932228,86.017445 66.776369,86.017445 C67.3087403,86.017445 68.0512583,86.010467 69,86 C68.5505665,87.812131 68.188554,89.3663446 67.9100398,90.6661299 C67.3521706,93.2141707 66.984274,94.9643049 66.8024272,95.9202899 C66.7643206,96.1196994 66.703238,96.4774557 66.6141359,97 C65.8993573,96.989533 65.3958461,96.9828234 65.1072448,96.9828234 C64.6894734,96.9828234 64.1730732,96.989533 63.5622472,97 C63.6998231,96.5150295 63.9704919,95.366613 64.3826594,93.5477724 C64.7951071,91.7286634 65.0475632,90.5665593 65.1436702,90.0611916 C65.1856995,89.8408481 65.2403376,89.53489 65.3045024,89.1430488 L63.6118418,92.4232421 L61.2060837,97 C60.5016724,96.989533 60.0158135,96.9828234 59.7476665,96.9828234 C59.4103112,96.9828234 58.8902685,96.989533 58.1923016,97 L58.033711,92.5676329 L57.8950143,90.2055824 C57.8910915,90.115942 57.8882896,90.0026838 57.886048,89.8684917 C57.8838065,89.7342995 57.8871688,89.4970478 57.8922123,89.1602254 L57.2620528,91.3918411 L56.1230583,95.968599 L55.9025445,97 C55.1527415,96.989533 54.6772499,96.9828234 54.4718666,96.9828234 C54.1866277,96.9828234 53.6979668,96.989533 53,97 Z" opacity="1">
+      							<fill>
+      								<Color>
+      									<red>0.12941176470588237</red>
+      									<green>0.3176470588235294</green>
+      									<blue>0.49411764705882355</blue>
+      								</Color>
+      							</fill>
+      						</SVGPath>
+      					</children>
+      					<transforms>
+      						<Translate x="0.000000" y=" -45.000000">
+						</Translate>
+      					</transforms>
+      				</Group>
+      			</children>
+      		</Group>
+      	</children>
+      </Group>
+      <Pane fx:id="warning" layoutX="247.0" layoutY="553.0" prefHeight="40.0" prefWidth="351.0">
+         <children>
+            <Group id="_root" layoutX="38.0" layoutY="9.0" xmlns:fxsvg="http://efxclipse.org/fxml-svg">
+            	<children>
+            		<!-- Unhandled type 'SvgTitleElement' -->
+            		<Group id="Page-1" opacity="1.0">
+            			<children>
+            				<Group id="Artboard" opacity="1.0">
+            					<children>
+            						<Group id="triangle-exclamation-solid" layoutX="-16.0" layoutY="-13.0" opacity="1.0">
+            							<children>
+            								<SVGPath id="Shape" content="M16.9987657,0 C17.941802,0 18.8117861,0.502232143 19.2899454,1.32589286 L33.6347222,25.96875 C34.1195225,26.7991071 34.1195225,27.8236607 33.6480044,28.6540179 C33.1764863,29.484375 32.2932199,30 31.3435426,30 L2.65398892,30 C1.70431157,30 0.821045218,29.484375 0.349527091,28.6540179 C-0.121991036,27.8236607 -0.115349935,26.7924107 0.362809292,25.96875 L14.7075861,1.32589286 C15.1857453,0.502232143 16.0557295,0 16.9987657,0 Z M16.9987657,8.57142857 C16.1154994,8.57142857 15.4049016,9.28794643 15.4049016,10.1785714 L15.4049016,17.6785714 C15.4049016,18.5691964 16.1154994,19.2857143 16.9987657,19.2857143 C17.8820321,19.2857143 18.5926298,18.5691964 18.5926298,17.6785714 L18.5926298,10.1785714 C18.5926298,9.28794643 17.8820321,8.57142857 16.9987657,8.57142857 Z M19.1239179,23.5714286 C19.1239179,22.3861607 18.1742405,21.4285714 16.9987657,21.4285714 C15.823291,21.4285714 14.8736136,22.3861607 14.8736136,23.5714286 C14.8736136,24.7566964 15.823291,25.7142857 16.9987657,25.7142857 C18.1742405,25.7142857 19.1239179,24.7566964 19.1239179,23.5714286 Z" fill="#ff4d4d" layoutX="2.0" layoutY="9.0" opacity="1" />
+            							</children>
+            							<transforms>
+            								<Translate x="675.000000" y=" 379.000000">
+								</Translate>
+            							</transforms>
+            						</Group>
+            					</children>
+            					<transforms>
+            						<Translate x="-675.000000" y=" -379.000000">
+						</Translate>
+            					</transforms>
+            				</Group>
+            			</children>
+            		</Group>
+            	</children>
+            </Group>
+            <Text fill="#ff4d4d" layoutX="78.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Array Index Out Of Bounds Exception" wrappingWidth="236.36786685262518">
+               <font>
+                  <Font name="SF Pro Display Semibold" size="14.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="info" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Text>
+            <Text fill="#ff4d4d" layoutX="77.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The array has been accessed with an illegal index." wrappingWidth="252.35540771484375">
+               <font>
+                  <Font name="SF Pro Display Regular" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="info" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</Pane>

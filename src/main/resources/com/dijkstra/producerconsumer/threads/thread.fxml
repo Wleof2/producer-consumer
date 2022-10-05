@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="60.0" prefWidth="65.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="status" fill="#222222" layoutX="-7.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING" textAlignment="CENTER" wrappingWidth="78.78858950074721">
+         <font>
+            <Font name="SF Pro Display Semibold" size="14.0" />
+         </font>
+      </Text>
+      <Pane layoutX="16.0" layoutY="1.0">
+         <children>
+            <Circle fx:id="circle" fill="#1f93ff" layoutX="16.0" layoutY="18.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fx:id="id" fill="#f5f5f5" layoutX="-1.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="32.49100875854492">
+               <font>
+                  <Font name="SF Pro Display Semibold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</Pane>

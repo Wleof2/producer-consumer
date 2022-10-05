@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.transform.Translate?>
+
+<Group>
+	<children>
+		<!-- Unhandled type 'SvgTitleElement' -->
+		<Group
+			opacity="1.0"
+			>
+			<children>
+				<Group
+					opacity="1.0"
+					>
+					<children>
+						<Group
+							opacity="1.0"
+							>
+							<children>
+								<SVGPath
+									content="M8.99916115,12.0010645 C8.84916115,12.0010645 8.69616115,11.9670645 8.55316115,11.8950645 C4.17316115,9.70506449 1.06916115,4.36906449 0.052161154,1.31706449 C-0.123838846,0.793064487 0.160161154,0.227064487 0.684161154,0.0520644871 C1.20916115,-0.123935513 1.77516115,0.161064487 1.94916115,0.684064487 C2.82616115,3.31606449 5.63716115,8.20106449 9.44816115,10.1060645 C9.94216115,10.3530645 10.1421612,10.9540645 9.89516115,11.4480645 C9.71916115,11.7990645 9.36616115,12.0010645 8.99916115,12.0010645 L8.99916115,12.0010645 Z"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.4666666666666667</red>
+											<green>0.6980392156862745</green>
+											<blue>0.3333333333333333</blue>
+										</Color>
+									</fill>
+								</SVGPath>
+								<Circle
+									radius="7.0"
+									centerX="18.0001612"
+									centerY="29.0010645"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.3333333333333333</red>
+											<green>0.21568627450980393</green>
+											<blue>0.5333333333333333</blue>
+										</Color>
+									</fill>
+									
+								</Circle>
+								<Circle
+									radius="7.0"
+									centerX="9.00016115"
+									centerY="15.0010645"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.5725490196078431</red>
+											<green>0.4</green>
+											<blue>0.8</blue>
+										</Color>
+									</fill>
+									
+								</Circle>
+								<Circle
+									radius="7.0"
+									centerX="18.0001612"
+									centerY="12.0010645"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.6666666666666666</red>
+											<green>0.5529411764705883</green>
+											<blue>0.8470588235294118</blue>
+										</Color>
+									</fill>
+									
+								</Circle>
+								<Circle
+									radius="7.0"
+									centerX="26.0001612"
+									centerY="18.0010645"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.4549019607843137</red>
+											<green>0.3058823529411765</green>
+											<blue>0.6666666666666666</blue>
+										</Color>
+									</fill>
+									
+								</Circle>
+								<Circle
+									radius="7.0"
+									centerX="8.00016115"
+									centerY="26.0010645"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.4549019607843137</red>
+											<green>0.3058823529411765</green>
+											<blue>0.6666666666666666</blue>
+										</Color>
+									</fill>
+									
+								</Circle>
+								<Circle
+									radius="7.0"
+									centerX="17.0001612"
+									centerY="21.0010645"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.5725490196078431</red>
+											<green>0.4</green>
+											<blue>0.8</blue>
+										</Color>
+									</fill>
+									
+								</Circle>
+								<Circle
+									radius="7.0"
+									centerX="28.0001612"
+									centerY="29.0010645"
+									opacity="1"
+									>
+									<fill>
+										<Color>
+											<red>0.5725490196078431</red>
+											<green>0.4</green>
+											<blue>0.8</blue>
+										</Color>
+									</fill>
+									
+								</Circle>
+							</children>
+							<transforms>
+								<Translate
+									x="470.000000"
+									y=" 379.000000"
+									>
+								</Translate>
+							</transforms>
+						</Group>
+					</children>
+					<transforms>
+						<Translate
+							x="-470.000000"
+							y=" -379.000000"
+							>
+						</Translate>
+					</transforms>
+				</Group>
+			</children>
+		</Group>
+	</children>
+</Group>
